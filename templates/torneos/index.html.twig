@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Torneos index{% endblock %}
+{% block title %}Torneos{% endblock %}
 
 {% block body %}
-    <h1>Torneos index</h1>
+    <h1>Listado de Torneos</h1>
 
     <table class="table">
         <thead>
@@ -13,7 +13,7 @@
                 <th>Deporte</th>
                 <th>Fecha</th>
                 <th>Hora</th>
-                <th>actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,17 +25,17 @@
                 <td>{{ torneo.fecha ? torneo.fecha|date('Y-m-d') : '' }}</td>
                 <td>{{ torneo.hora ? torneo.hora|date('H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('torneos_show', {'id': torneo.id}) }}">show</a>
-                    <a href="{{ path('torneos_edit', {'id': torneo.id}) }}">edit</a>
+                    <a href="{{ path('torneos_show', {'id': torneo.id}) }}">Ver</a>
+                    <a href="{{ path('torneos_edit', {'id': torneo.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">No existen registros</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('torneos_new') }}">Create new</a>
+    <a href="{{ path('torneos_new') }}">Crear torneo</a>
 {% endblock %}

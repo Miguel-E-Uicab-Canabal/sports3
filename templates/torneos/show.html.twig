@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ torneo.id }}</td>
-            </tr>
-            <tr>
                 <th>Nombre</th>
                 <td>{{ torneo.nombre }}</td>
             </tr>
@@ -30,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('torneos_index') }}">back to list</a>
+    <a href="{{ path('torneos_index') }}">Listado de torneos</a>
 
-    <a href="{{ path('torneos_edit', {'id': torneo.id}) }}">edit</a>
+    <a href="{{ path('torneos_edit', {'id': torneo.id}) }}">Editar</a>
 
     {{ include('torneos/_delete_form.html.twig') }}
 {% endblock %}
