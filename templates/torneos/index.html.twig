@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Torneos index{% endblock %}
+
+{% block body %}
+    <h1>Torneos index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Deporte</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for torneo in torneos %}
+            <tr>
+                <td>{{ torneo.id }}</td>
+                <td>{{ torneo.nombre }}</td>
+                <td>{{ torneo.deporte }}</td>
+                <td>{{ torneo.fecha ? torneo.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ torneo.hora ? torneo.hora|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('torneos_show', {'id': torneo.id}) }}">show</a>
+                    <a href="{{ path('torneos_edit', {'id': torneo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('torneos_new') }}">Create new</a>
+{% endblock %}
