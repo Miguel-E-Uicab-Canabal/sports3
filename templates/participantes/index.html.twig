@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Participantes index{% endblock %}
+{% block title %}Participantes{% endblock %}
 
 {% block body %}
-    <h1>Participantes index</h1>
+    <h1>Listado de participantes</h1>
 
     <table class="table">
         <thead>
@@ -25,17 +25,17 @@
                 <td>{{ participante.apellidom }}</td>
                 <td>{{ participante.edad }}</td>
                 <td>
-                    <a href="{{ path('participantes_show', {'id': participante.id}) }}">show</a>
-                    <a href="{{ path('participantes_edit', {'id': participante.id}) }}">edit</a>
+                    <a href="{{ path('participantes_show', {'id': participante.id}) }}">Ver</a>
+                    <a href="{{ path('participantes_edit', {'id': participante.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">No existen registros</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('participantes_new') }}">Create new</a>
+    <a href="{{ path('participantes_new') }}">Crear participante</a>
 {% endblock %}
